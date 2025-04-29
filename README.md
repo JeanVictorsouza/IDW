@@ -5,16 +5,16 @@ Abrir o DOCKER DESKTOP
 --Criar pasta no diretorio raiz C: "C:\SI\3 ANO\IDW\DATA"
 
 C:\SI\3 ANO\IDW\DATA
-				   \__ Mapeamento dos dados.
+		  \__ Mapeamento dos dados.
 				   
 Salvar arquivo: vertica-jdbc-7.1.1-0.jar dentro da pasta IDW
-	-- C:\SI\3 ANO\IDW
-					 \__vertica-jdbc-7.1.1-0.jar
+	 C:\SI\3 ANO\IDW
+		        \__vertica-jdbc-7.1.1-0.jar
 					
 					
-								 __ Run: Apenas executa a instancia já instalada da Imagem.
-Serach							/
-	\__ vertica/vertica-ce => Pull; Aguardar o processo de Download/Carregamento da Imagem.
+			          __ Run: Apenas executa a instancia já instalada da Imagem.
+Serach				 /
+    \__ vertica/vertica-ce => Pull; Aguardar o processo de Download/Carregamento da Imagem.
 				\__ Imagem official do VERTICA
 	
 Menu Images Fica as instancias já baixadas, prontas para execução.
