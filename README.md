@@ -1,8 +1,10 @@
+Aula 1
+
 # IDW
 
 Abrir o DOCKER DESKTOP
 
---Criar pasta no diretorio raiz C: "C:\SI\3 ANO\IDW\DATA"
+-- Criar pasta no diretorio raiz C: "C:\SI\3 ANO\IDW\DATA"
 
 C:\SI\3 ANO\IDW\DATA
 		  \__ Mapeamento dos dados.
@@ -26,14 +28,14 @@ Apos instalada:
 	Optional Setings
 	
 	Container Name  \\Codigo e nome pode ser usado para identificação do banco em projetos.
-	--vertica_ce         \__ Codigo é visualizado abaixo do nome do Container.
+	-- vertica_ce         \__ Codigo é visualizado abaixo do nome do Container.
 	
 	Ports:
-	--15433 :5433/tcp
-	--15444 :5444/tcp
+	-- 15433 :5433/tcp
+	-- 15444 :5444/tcp
 	
 	Volumes:
-	--Caminho da pasta em Host path => em Container Path /data
+	-- Caminho da pasta em Host path => em Container Path /data
 	
 	Apos preenchimento clicar em Run.
 	
@@ -41,10 +43,10 @@ Apos instalada:
 	
 
 Abrir aba EXEC=> terminal linux
-\\# apemas root pode executar o comando
+\\# apenas root pode executar o comando
 \\$ pode ser executado por qualquer usuario
 
-sudo sudo \\User Root
+sudo su \\User Root
 
 su dbadmin \\ User master
 
@@ -89,3 +91,30 @@ Nova conexão
 -- Configuração de driver
 	\__ Libraries
 	       \__ Colocar arquivo => vertica-jdbc-7.1.1-0.jar
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+
+Aula 2
+
+	Modelo
+		\___ ( STAR SCHEMA )
+					\__ SGDB
+					      \__ ( VERTICA )
+									\___ DATABASE
+											\__ ( DW ) 
+											
+											
+\\ VMart vem ativo por padrãon então desligar ele, down e ativar o schema que foi criado manual.
+																	  \___ "dw"
+																	  
+conectar o banco e colocar a senha
+
+\dn para ver o banco
+
+atribuir privilegios de ADM novamente ao usuario
+grant all on schema udw to udw;
+
+abrir o DBeaver

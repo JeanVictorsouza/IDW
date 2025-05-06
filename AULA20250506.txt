@@ -1,0 +1,104 @@
+-- Aula implementação DW DL
+-- Gustavo
+--06/05/2025
+
+-- 1° Criar tabelas dimensionais
+-- Por causa das chaves estrangeiras PK's
+
+
+CREATE TABLE data(
+cod_data int primary key,
+data date not null
+);
+
+DROP TABLE IF EXISTS lojas;
+
+CREATE TABLE lojas(
+cod_loja int primary key,
+nome varchar(50) not null
+);
+
+DROP TABLE IF EXISTS produtos;
+
+CREATE TABLE produtos(
+cod_produto int primary key,
+descricao varchar(100) not null
+);
+
+
+DROP TABLE IF EXISTS cliente;
+
+CREATE table cliente(
+cod_cliente int primary key,
+primeiro_nome varchar(30) not null
+);
+
+
+insert into data 
+  values (20250506, '2025-05-06'),
+         (20250505, '2025-05-05'),
+         (20250504, '2025-05-04'),
+         (20250503, '2025-05-03'),
+         (20250502, '2025-05-02'),
+         (20250501, '2025-05-01');
+         
+        
+insert into lojas
+  values(1, 'loja 1'),
+        (2, 'loja 2');
+
+insert into produtos
+  values(1, 'produto 1'),
+        (2, 'produto 2');
+       
+insert into cliente
+  values(1, 'cliente 1'),
+        (2, 'cliente 2');
+       
+       
+-- criar tabela fato
+DROP TABLE IF EXISTS vendas;
+       
+CREATE table vendas(
+  cod_data int,
+  cod_loja int,
+  cod_cliente int,
+  cod_produto int,
+  qtd_vendida int,
+  vlr_venda numeric(12,2)
+);
+
+alter table vendas
+add constraint fk_data
+foreign key(cod_data)
+references data(cod_data);
+
+alter table vendas
+add constraint fk_loja
+foreign key(cod_loja)
+references lojas(cod_loja);
+
+alter table vendas
+add constraint fk_produto
+foreign key(cod_produto)
+references produtos(cod_produto);
+
+alter table vendas
+add constraint fk_cliente
+foreign key(cod_cliente)
+references cliente(cod_cliente);
+
+
+-- popular a tabela fato
+
+insert into vendas
+values (20250506,1,1,2,10,4),
+       (20250506,1,2,1,5,3),
+       (20250506,1,1,2,12,6);
+      
+      
+-- Analise
+
+select * from vendas
+      
+      
