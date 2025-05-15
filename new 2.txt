@@ -1,0 +1,28 @@
+AULA_20250513
+
+	Fato depende das dimensoes ( chaves estrangeiras )
+
+PENTAHO --- Software Livre
+   |___ PDI
+		 |___ ETL
+		 
+		 
+	Spoon - Designer grafico da aplicação
+	
+	Pan - agendar execução
+	
+	Kitchen - fluxo de trabalho em lote
+	
+	|___ JOB -> execução de varias rotinas ou processos.
+	
+	
+	
+	
+	
+|___ New File
+|___ Transformação
+|___ DataBase Conection
+|___ Nome da conexão
+|___ Tipo do banco de dados
+|___ Informaçoes de acesso
+

@@ -1,0 +1,95 @@
+1° Baixar arquivos do diretorio bit.ly/p5_idw
+2° Adicionar drivers do MySQL e vertica 11 dentro da pasta lib do pdi.
+3° Abrir o docker desktop, inicializar o container e stop nos databases ativos. (Deixar DOWN).
+4° Abrir comand line do MySQL. (password: 123456). ( 0A-00-27-00-00-06 )
+5°  no vertica, inicie o DW.
+
+6° no MySQL executar:
+	
+	//Crair DataBase
+	create database o1;
+	
+	use o1;
+	
+	//Criar tabelas
+	create table departamento
+	(id int primary key,
+	nome varchar(30),
+	status char(1));
+	
+	create table funcionarios(
+	matricula int,
+	nome varchar(100),
+	dt_admissao date,
+	dt_demissao date,
+	id_departamento int,
+	qtd_funcionario int);
+	
+	
+	//Inserir valores
+	insert into departamento (id, nome, status) values
+	(1, 'administrativo', 'T'),
+	(2,' ti','T'),
+	(3,'almoxarifado','F');
+	
+	// No Dbeaver
+	
+	//Conectar no vertica e depois 
+	
+	create table d_departamento(
+		id int,
+		nome varchar(50)
+		);
+  
+	// Apos Usar o spoon.bat
+	select * from d_departamento 
+	  
+	  
+7° Abrir o Spoom.bat dentro do pdi
+
+	Novo arquivo
+		Transformation
+		
+		File
+			DataBase Conection
+			
+		Conection Name: O1			
+		Conection type: MySQL		
+		Hostname: localhost		
+		database name: o1
+		port (nao alterar)
+		user name: root
+		password: 123456
+		
+		#Table Input
+		Nome do Step: Origem
+		Conection: O1
+		
+		SQL
+		select * from departamento where status = 'T'
+		#Testar
+		
+		#Conectar no vertica
+		
+		Hostname Name: localhost						
+		Database name: udw
+		Port Number: 15433
+		Username: udw
+		Password: 123456
+		
+		#Table Output
+		Nome do Step: Destino
+		Conection: UDW
+		target schema: udw
+		target table: d_departamento
+		Commit size: 1000
+		
+		Marcar -Truncate table, Specify database fields
+		DataBase fields
+		# Passar colunas
+		
+		id -- id
+		nome -- nome
+		
+		
+	
